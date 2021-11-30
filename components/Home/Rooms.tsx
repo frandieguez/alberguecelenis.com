@@ -1,28 +1,50 @@
 import React from "react";
+import Image from "next/image";
 
 export default function Rooms() {
   return (
     <div id="rooms" className="rooms">
       <h3 className="rooms_title">
-        All our room types are including complementary breakfast
+        Habitación privada o camas literas, sábanas y Wi-Fi gratis, así como
+        cómodos baños. Lavandería con lavadora, secadora y cocina comunitaria.
       </h3>
       <div className="rooms_content">
         {[
           {
-            photo: <img src="./icons/rooms-private.png" />,
-            name: "Private bedroom",
+            id: "habitacion-privada",
+            photo: (
+              <Image
+                width="420"
+                height="264"
+                src="/assets/photos/habitacion-privada.webp"
+                alt="Habitacion privada"
+                layout="responsive"
+                priority
+              />
+            ),
+            name: "Habitación privada",
             explanation:
-              "Our rooms are designed to transport  you into an environment made for leisure. Take your mind off the day-to-day of home  life and find a private paradise for yourself.",
+              "Si necesitas privacidad te ofrecemos habitación familiar doble así como baño privado.",
           },
           {
-            photo: <img src="./icons/rooms-bulk.png" />,
-            name: "Confy bunk beds ",
+            id: "literas",
+            photo: (
+              <Image
+                width="417"
+                height="558"
+                src="/assets/photos/literas.webp"
+                alt="Cómodas literas dobles"
+                layout="responsive"
+                priority
+              />
+            ),
+            name: "Cómodas literas dobles",
             explanation:
-              "We love life at the beach. Being close to the ocean with access to endless sandy beach ensures a relaxed state of mind. It seems like time stands still watching the ocean. ",
+              "Excelentes habitaciones compartidas en camas litera con todos los servicios, perfectas para un descanso completo en el Camino de Santiago.",
           },
         ].map((room) => {
           return (
-            <div className="rooms_room">
+            <div className="rooms_room" key={room.id}>
               <div className="rooms_room_image">{room.photo}</div>
               <div className="rooms_room_info">
                 <div className="rooms_room_info_title">{room.name}</div>

@@ -11,11 +11,13 @@
   --color-yellow-transparent: #e0b97355;
   --color-blue: rgb(20, 39, 74); //#14274a;
   --color-blue--transparent: #14274a55;
-  --wrapper-width: 800px;
+  --wrapper-width: 900px;
 }
 
 body {
   color: var(--color-blue);
+  font-family: sans;
+  line-height: 1.5rem;
 }
 
 h1,
@@ -25,6 +27,26 @@ h4,
 h5,
 h6 {
   font-family: "EB Garamond", serif;
+}
+p {
+  margin-bottom: 1rem;
+}
+
+@keyframes pulse-yellow {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(224, 185, 115, 0.7);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(224, 185, 115, 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(224, 185, 115, 0);
+  }
 }
 
 .button {
@@ -38,6 +60,8 @@ h6 {
 }
 
 .book_now {
+  display: inline-block;
+
   &_content {
     display: flex;
     align-items: center;
@@ -68,6 +92,16 @@ textarea {
   @media only screen and (max-width: 767.99px) {
     margin: 0 1rem;
   }
+
+  &--single {
+    margin: 1rem auto;
+  }
+
+  & .page-title {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
 }
 
 .layout {
@@ -75,41 +109,71 @@ textarea {
 }
 
 .header {
-  position: sticky;
-  top: 0;
-  padding: 1rem 0;
+  position: relative;
+  z-index: 3;
+  //   position: sticky;
+  //   top: 0;
+  padding-bottom: 1rem;
   color: White;
+  text-align: center;
 
   @media only screen and (max-width: 767.99px) {
     position: relative;
     top: initial;
   }
 
-  .page-wrapper {
+  .header-wrapper {
     display: flex;
     justify-content: space-between;
+    max-width: 1024px;
+    margin: 0 auto;
 
+    & > * {
+      flex-grow: 1;
+    }
+
+    // @media only screen and (max-width: 767.99px) {
+    //   justify-content: space-around;
+    // }
+  }
+  &_links,
+  &_menu {
+    padding: 1rem 0;
     @media only screen and (max-width: 767.99px) {
-      justify-content: space-around;
+      display: none;
+    }
+  }
+
+  &_links {
+    &_link-phone {
+      color: transparent;
+      text-shadow: 0 0 0 white;
+    }
+    ul li {
+      display: inline-block;
+      padding: 0.5rem;
     }
   }
 
   &_logo {
-    border: 1px solid var(--color-blue);
-    background: var(--color-yellow);
-    border-top: 0;
-    padding: 1rem 2rem;
-    margin-top: -1rem;
-    border-radius: 0 0 10px 10px;
-  }
-  &_menu {
-    @media only screen and (max-width: 767.99px) {
-      display: none;
-    }
+    flex-grow: 2 !important;
 
+    &_image  {
+      border: 1px solid var(--color-blue-transparent);
+      background: var(--color-yellow);
+      border-top: 0;
+      padding: 1rem 2rem;
+      border-radius: 0 0 10px 10px;
+      text-align: center;
+      display: inline-block;
+    }
+  }
+
+  &_menu {
     ul {
+      margin-top: 1em;
       display: flex;
-      flex-direction: row;
+      flex-direction: row-reverse;
       flex-wrap: nowrap;
       li {
         margin-right: 1rem;
@@ -126,34 +190,123 @@ textarea {
     }
   }
 }
+.top {
+  overflow: hidden;
+  position: relative;
+  .top_image {
+    z-index: 1;
+    background: var(--color-yellow);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    //filter: blur(4px);
+    overflow: hidden;
+
+    @media only screen and (min-width: 767.99px) {
+      background: url("/assets/photos/Banner.webp") center center;
+    }
+  }
+
+  .top_overlay {
+    z-index: 2;
+    background: var(--color-yellow);
+    opacity: 0.5;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+  }
+}
 
 .hero {
-  background: var(--color-yellow);
+  z-index: 2;
+  // background: var(--color-yellow);
   margin-bottom: 1em;
-  color: White;
+  color: var(--color-blue);
   margin-top: -7rem;
   padding-top: 10rem;
+  position: relative;
+  .hero_promotion {
+    margin: 0 auto;
+    max-width: 600px;
+    img {
+      width: 100%;
+    }
+  }
+
+  .hero_background {
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+    height: 100%;
+  }
+
+  .hero_hours {
+    font-family: "EB Garamond", serif;
+    font-size: 1.6em;
+    max-width: var(--wrapper-width);
+    margin: 0 auto;
+    text-align: center;
+    &__title {
+      font-size: 1.3em;
+      line-height: 1.3em;
+      margin-bottom: 1em;
+    }
+    &__subtitle {
+      font-size: 2em;
+      line-height: 1.3em;
+    }
+  }
 
   .hero_text {
     font-size: 1.2rem;
     max-width: var(--wrapper-width);
     margin: 0 auto;
 
+    @media only screen and (max-width: 767.99px) {
+      line-height: 2em;
+      text-align: center;
+      &_name {
+        font-size: 2.5rem;
+        font-weight: 600;
+      }
+      &_subname {
+        font-size: 1.5rem;
+      }
+
+      &_legend {
+        display: inline-block;
+        padding: 0rem 1rem;
+      }
+    }
+
     &_welcome,
     &_name,
     &_subname {
       text-transform: uppercase;
     }
+    &_welcome {
+      margin-bottom: 1rem;
+    }
 
     &_name {
-      font-size: 4rem;
-      line-height: 1em;
+      font-size: 5rem;
+      line-height: 1.1em;
       font-weight: 600;
     }
+    
+    @media only screen and (max-width: 320px) {
+      &_name {
+        font-size: 4.5rem;
+      }
+    }
+    
     &_subname {
-      font-size: 1.6rem;
+      font-size: 3rem;
     }
     &_legend {
+      margin-top: 1rem;
+      max-width: 400px;
     }
   }
 
@@ -165,28 +318,45 @@ textarea {
     padding: 2em;
 
     .book_now {
-      border: 1px solid var(--color-blue);
       clear: both;
       display: inline-block;
+      font-weight: normal;
+      font-size: 0.9em;
+      border: 1px solid var(--color-blue);
+
+      div {
+        margin-right: 5px !important;
+      }
+
+      &:hover {
+        border: 1px solid var(--color-blue);
+      }
     }
 
     .btn--rounded {
       color: var(--color-yellow);
-      display: inline-block;
       clear: both;
       background: White;
       border-radius: 3em;
       text-align: center;
-      padding: 0 0;
       margin: 1rem;
-      transform: rotate(-90deg);
-      width: 40px;
-      height: 40px;
+      display:inline-block;
+      width:40px;
+      height:40px;
+      line-height:32px;
+      border-radius: 50%;
+      animation: pulse-yellow 2s infinite;
+      margin-top:3rem;
+
+      &_text {
+        display:block;
+      }
     }
   }
 }
 
 .rooms {
+  padding-top: 1rem;
   &_title {
     font-family: sans;
     text-align: center;
@@ -196,15 +366,33 @@ textarea {
   }
 
   &_room {
-    flex-direction: row;
+    flex-direction: row-reverse;
     display: flex;
+    flex-flow: row-reverse;
     padding: 1em 0;
+    align-items: center;
+
+    @media only screen and (max-width: 767.99px) {
+      flex-direction: column;
+    }
+
+    &_image {
+      max-height: 40%;
+      flex: 1 0 0px;
+      display:block;
+    }
 
     &_info {
-      flex-grow: 1;
+      flex: 1 0 0px;
       order: 2;
       border-left: 1px solid var(--color-blue);
       padding: 1rem;
+
+      @media only screen and (max-width: 767.99px) {
+        border: 0 none;
+        padding: 1rem 0;
+        text-align: center;
+      }
 
       &_title {
         font-family: "EB Garamond", serif;
@@ -216,12 +404,19 @@ textarea {
       }
       &_button {
         margin-top: 1rem;
+        display: none;
       }
     }
 
-    &_photo {
-      flex-grow: 2;
+    &_image {
+      flex-grow: 1;
       order: 1;
+      width: 800px;
+      padding: 1em;
+
+      @media only screen and (max-width: 767.99px) {
+        width: 100%;
+      }
     }
   }
 }
@@ -283,10 +478,15 @@ textarea {
     grid-gap: 4rem;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     align-items: center;
+    justify-content: end;
 
     .facilities_facility {
       text-align: center;
-
+      
+      @media only screen and (max-width: 320px) {
+        padding-left: 4rem;
+      }
+      
       &_image {
         width: 100px;
         height: 100px;
@@ -333,23 +533,39 @@ textarea {
 
     &_info {
       font-weight: 1.1rem;
-
+      flex: 1 0 0px;
+      
+      &_horario {
+        margin-bottom: 0.4rem;
+        font-size: 1.1rem;
+        font-weight: bold;
+        display: block;
+        padding-bottom: 5px;
+      }
+      
       &_view-map {
         margin: 0.4rem 0;
         font-size: 1.1rem;
         font-weight: bold;
         display: block;
+        padding: 5px 0;
 
         .arrow {
           font-weight: 2em;
-        }
+        } 
       }
     }
 
     &_form {
+      flex: 1 0 0px;
       display: flex;
       flex-direction: column;
       margin-bottom: 1rem;
+      gap: 0.5em;
+
+      @media only screen and (max-width: 767.99px) {
+        margin-top: 1rem;
+      }
 
       button {
         margin-top: 1rem;
@@ -366,6 +582,14 @@ textarea {
   background: var(--color-blue);
   min-height: 3em;
   padding: 4em 2em;
+  line-height: 2rem;
+
+  .footer_logo {
+    margin-bottom: 1em;
+  }
+  .footer_group li {
+    margin-bottom: 0.2em;
+  }
 
   h3 {
     font-weight: 1.3em;
@@ -388,6 +612,20 @@ textarea {
     }
     .footer_group:last-child {
       margin-bottom: 0;
+    }
+
+    &_logo {
+      margin: 1em auto;
+    }
+  }
+
+  .footer_group_social {
+    &_image {
+      min-width: 45px;
+      display: inline-block;
+      img {
+        height: 20px;
+      }
     }
   }
 
