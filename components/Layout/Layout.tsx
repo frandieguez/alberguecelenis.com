@@ -21,7 +21,6 @@ const Layout: React.FunctionComponent<Props> = ({
         name="description"
         content="Un lugar idílico donde descansar en el Camino Portugés de Santiago en Caldas de Reis."
       />      
-      <!-- Global site tag (gtag.js) - Google Analytics -->
       <script async src="https://www.googletagmanager.com/gtag/js?id=UA-213807336-1%22%3E"></script>
       <script>
         window.dataLayer = window.dataLayer || [];
