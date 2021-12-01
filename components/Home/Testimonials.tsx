@@ -2,7 +2,8 @@ import React from "react";
 
 export default function Testimonials() {
   return (
-    <div id="testimonials" className="testimonials" data-class="test">
+    <div id="testimonials" className="testimonials t2">
+
       <div className="page-wrapper">
         <h3 className="testimonials_title">Testimonials</h3>
         <div className="testimonials_list">
