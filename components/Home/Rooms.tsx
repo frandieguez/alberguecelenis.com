@@ -6,7 +6,7 @@ export default function Rooms() {
     <div id="rooms" className="rooms">
       <h3 className="rooms_title">
         Habitación privada o camas literas, sábanas y Wi-Fi gratis, así como
-        cómodos baños. Lavandería con lavadora, secadora y cocina comunitaria..
+        cómodos baños. Lavandería con lavadora, secadora y cocina comunitaria.
       </h3>
       <div className="rooms_content">
         {[
