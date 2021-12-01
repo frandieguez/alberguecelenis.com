@@ -22,13 +22,12 @@ const Layout: React.FunctionComponent<Props> = ({
         content="Un lugar idílico donde descansar en el Camino Portugés de Santiago en Caldas de Reis."
       />      
       <script async src="https://www.googletagmanager.com/gtag/js?id=UA-213807336-1%22%3E"></script>
-      <script>
-        window.dataLayer = window.dataLayer || [];
+      <script dangerouslySetInnerHTML={{
+      __html:  `window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
 
-        gtag('config', 'UA-213807336-1');
-      </script>
+        gtag('config', 'UA-213807336-1');`}} />
     </Head>
     {children}
     <script
