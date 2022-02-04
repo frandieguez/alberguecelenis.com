@@ -24,7 +24,7 @@ export default function Rooms() {
             ),
             name: "Habitación privada",
             explanation:
-              "Si necesitas privacidad te ofrecemos habitación familiar doble así como baño privado.",
+              "Si necesitas privacidad te ofrecemos habitación privada doble así como baño privado.",
           },
           {
             id: "literas",
