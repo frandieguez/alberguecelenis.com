@@ -38,7 +38,7 @@ const IndexPage: NextPage = () => {
           Dirección: Rúa das Silgadas nº16, 36650 Caldas de Reis Pontevedra
           (España)
           <br />
-          Teléfono: +34 650 71 43 55
+          Teléfono: +34 604 053 729
           <br />
           Correo electrónico: alberguecelenis@gmail.com
           <br />
