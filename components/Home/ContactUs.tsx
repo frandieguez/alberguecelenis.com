@@ -23,8 +23,8 @@ export default function ContactUs() {
             >
               Ver en Google Maps <span className="arrow">&rarr;</span>
             </a>
-            <a href="tel:0034-650-714-355" className="phone">
-              Teléfono: +34 650 71 43 55
+            <a href="tel:0034-604-053-729" className="phone">
+              Teléfono: +34 604 053 729
             </a>
             <div className="email">
               Correo electrónico:{" "}
