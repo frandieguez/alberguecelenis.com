@@ -56,8 +56,8 @@ export default function Header() {
               </a>
             </li>
             <li>
-              <a className="header_link-phone" href="tel:0034650-714-355">
-                📞 +34 650 714 355
+              <a className="header_link-phone" href="tel:0034-604-053-729">
+                📞 +34 604 053 729
               </a>
             </li>
           </ul>
